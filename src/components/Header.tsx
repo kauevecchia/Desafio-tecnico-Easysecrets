@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ThemeToggler } from "./ThemeToggler";
 
 export function Header() {
   return (
@@ -7,6 +8,7 @@ export function Header() {
         <h3 className="text-foreground font-bold md:text-2xl">Sales Tracker</h3>
       </Link>
       <div className="flex items-center gap-2">
+        <ThemeToggler />
         <div className="block lg:hidden"></div>
       </div>
     </header>
