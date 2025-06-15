@@ -82,7 +82,7 @@ export function ProductsScoreboard() {
                   <div className="flex items-center justify-between">
                     <p className="text-foreground font-medium">{item.name}</p>
                     <div className="text-muted-foreground min-w-[30px] text-right text-sm font-medium">
-                      {item.totalSales} vendas ({barWidth.toFixed(2)}%)
+                      {item.totalSales} <span className="hidden md:inline">vendas</span> ({barWidth.toFixed(2)}%)
                     </div>
                   </div>
                   <div className="bg-muted h-2 overflow-hidden rounded-full">

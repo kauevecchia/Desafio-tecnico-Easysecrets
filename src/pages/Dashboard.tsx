@@ -13,7 +13,7 @@ export function Dashboard() {
     >
       <div className="flex flex-col gap-8">
         <div>
-          <h1 className="text-foreground text-3xl font-bold">
+          <h1 className="text-foreground text-2xl md:text-3xl font-bold">
             Dashboard
           </h1>
         </div>

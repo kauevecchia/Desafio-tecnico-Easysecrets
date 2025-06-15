@@ -7,7 +7,7 @@ export function DefaultLayout() {
     <div className="bg-background flex h-screen flex-col">
       <Header />
 
-      <div className="flex flex-grow px-4 py-4">
+      <div className="flex flex-grow md:p-4">
         <aside className="hidden lg:block lg:w-1/5">
           <Sidebar />
         </aside>

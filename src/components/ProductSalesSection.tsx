@@ -111,7 +111,7 @@ export function ProductSalesSection() {
               <Select onValueChange={handleMonthChange} value={selectedMonth}>
                 <SelectTrigger
                   id="month-select"
-                  className="w-[180px] md:w-[200px]"
+                  className="w-[165px] md:w-[200px]"
                 >
                   <SelectValue placeholder="Selecione o Mês" />
                 </SelectTrigger>

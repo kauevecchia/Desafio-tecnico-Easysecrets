@@ -119,7 +119,7 @@ export function ComparisonResults({ onNewComparison }: ComparisonDisplayProps) {
             Gráfico de Vendas Comparativo
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex-1 p-6">
+        <CardContent className="flex-1 p-0 md:p-6">
           {comparisonChartData.length > 0 ? (
             <ComparisonLineChart
               data={comparisonChartData}

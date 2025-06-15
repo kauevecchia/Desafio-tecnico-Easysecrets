@@ -10,7 +10,7 @@ export function ProductsComparison() {
       transition={{ duration: 0.3 }}
       className="flex flex-col gap-8 p-4"
     >
-      <h1 className="text-foreground mb-4 text-3xl font-bold">
+      <h1 className="text-foreground mb-4 text-2xl md:text-3xl font-bold">
         Comparar Produtos
       </h1>
       <ProductsComparisonSection />

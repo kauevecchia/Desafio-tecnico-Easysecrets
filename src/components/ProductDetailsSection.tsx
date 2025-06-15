@@ -81,7 +81,7 @@ export function ProductDetailsSection() {
             </Select>
           </div>
         </CardHeader>
-        <CardContent className="flex-1 p-6">
+        <CardContent className="flex-1 p-0 md:p-6">
           <ProductLineChart
             data={productSalesForLineChart}
             lineColor={lineChartColor}

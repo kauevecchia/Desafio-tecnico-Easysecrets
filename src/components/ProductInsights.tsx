@@ -72,7 +72,7 @@ export function ProductInsightsPanel() {
               <span className="text-muted-foreground text-sm font-medium">
                 Vendas Totais:
               </span>
-              <span className="text-primary text-lg font-bold">
+              <span className="text-primary md:text-lg font-bold">
                 {totalSales} unidades
               </span>
             </div>
@@ -80,7 +80,7 @@ export function ProductInsightsPanel() {
               <span className="text-muted-foreground text-sm font-medium">
                 Vendas Médias/Mês:
               </span>
-              <span className="text-primary text-lg font-bold">
+              <span className="text-primary md:text-lg font-bold">
                 {averageSales.toFixed(0)} unidades
               </span>
             </div>
@@ -88,7 +88,7 @@ export function ProductInsightsPanel() {
               <span className="text-muted-foreground text-sm font-medium">
                 Melhor Mês:
               </span>
-              <span className="text-primary text-lg font-bold">
+              <span className="text-primary md:text-lg font-bold">
                 {bestMonth.mes} ({bestMonth.quantidade})
               </span>
             </div>
@@ -96,7 +96,7 @@ export function ProductInsightsPanel() {
               <span className="text-muted-foreground text-sm font-medium">
                 Pior Mês:
               </span>
-              <span className="text-primary text-lg font-bold">
+              <span className="text-primary md:text-lg font-bold">
                 {worstMonth.mes} ({worstMonth.quantidade})
               </span>
             </div>
@@ -105,7 +105,7 @@ export function ProductInsightsPanel() {
                 <span className="text-muted-foreground text-sm font-medium">
                   Tendência:
                 </span>
-                <span className="text-primary flex items-center gap-1 text-lg font-bold">
+                <span className="text-primary flex items-center gap-1 md:*:text-lg font-bold">
                   {salesTrend === "up" && (
                     <TrendingUp className="h-5 w-5 text-green-500" />
                   )}

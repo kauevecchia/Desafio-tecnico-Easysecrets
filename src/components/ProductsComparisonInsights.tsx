@@ -142,11 +142,11 @@ export function ProductsComparisonInsights() {
         </div>
 
         {highestDifferenceMonth && (
-          <div className="bg-muted flex items-center justify-between rounded-md p-3">
+          <div className="bg-muted flex gap-2 items-center justify-between rounded-md p-3">
             <span className="text-muted-foreground text-sm font-medium">
               Maior Divergência:
             </span>
-            <span className="text-primary flex items-center gap-1 font-bold">
+            <span className="text-primary flex text-sm md:text-base items-center gap-1 font-bold">
               {highestDifferenceMonth.month}:{" "}
               {highestDifferenceMonth.diff > 0 ? product1Name : product2Name}{" "}
               com {Math.abs(highestDifferenceMonth.diff)} unidades a mais
