@@ -1,3 +1,4 @@
+import { Toaster } from "sonner";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { Router } from "./Router";
 import { BrowserRouter } from "react-router-dom";
@@ -10,6 +11,7 @@ export function App() {
       enableSystem
     >
       <BrowserRouter>
+        <Toaster richColors />
         <Router />
       </BrowserRouter>
     </ThemeProvider>
