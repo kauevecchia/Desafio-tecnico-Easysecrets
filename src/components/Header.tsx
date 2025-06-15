@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ThemeToggler } from "./ThemeToggler";
+import { MobileMenu } from "./MobileMenu";
 
 export function Header() {
   return (
@@ -9,7 +10,9 @@ export function Header() {
       </Link>
       <div className="flex items-center gap-2">
         <ThemeToggler />
-        <div className="block lg:hidden"></div>
+        <div className="block lg:hidden">
+          <MobileMenu />
+        </div>
       </div>
     </header>
   );
