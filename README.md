@@ -82,6 +82,7 @@ src/
 ├── components/           # Componentes React reutilizáveis e organizados por domínio/tipo
 │   ├── ComparisonResults.tsx       # Exibição de resultados da comparação
 │   ├── ComparisonSetupForm.tsx     # Formulário de seleção para comparação
+│   ├── ExportConfirmationDialog.tsx # Modal de confirmação para exportação de gráficos em formato SVG
 │   ├── Header.tsx                  # Componente do cabeçalho da aplicação
 │   ├── MobileMenu.tsx              # Menu para a navegação entre as páginas da aplicação para mobile
 │   ├── ProductDetailsSection.tsx    # Seção inteligente para gráfico de linha e insights de produto único
@@ -114,6 +115,8 @@ src/
 │   │   └── productSlice.ts
 │   ├── hooks.ts          # Hooks tipados para Redux (useAppDispatch, useAppSelector)
 │   └── index.ts          # Configuração da store principal do Redux
+├── utils/
+│   └── exportChartAsSvg.ts # Função para exportar gráfico em formato SVG
 ├── App.tsx               # Componente raiz da aplicação
 ├── Router.tsx            # Configuração das rotas
 └── main.tsx              # Ponto de entrada da aplicação (Vite)
