@@ -80,15 +80,15 @@ A estrutura de pastas foi pensada para ser modular, escalável e de fácil naveg
 ```
 src/
 ├── components/           # Componentes React reutilizáveis e organizados por domínio/tipo
-│   ├── ComparisonDisplay.tsx       # Exibição de resultados da comparação
+│   ├── ComparisonResults.tsx       # Exibição de resultados da comparação
 │   ├── ComparisonSetupForm.tsx     # Formulário de seleção para comparação
 │   ├── Header.tsx                  # Componente do cabeçalho da aplicação
 │   ├── MobileMenu.tsx              # Menu para a navegação entre as páginas da aplicação para mobile
-│   ├── ProductDetailSection.tsx    # Seção inteligente para gráfico de linha e insights de produto único
-│   ├── ProductInsightsPanel.tsx    # Painel de insights para produto único (ao lado do ProductLineChart)
-│   ├── ProductsComparisonFlow.tsx  # Orquestra o fluxo de comparação (setup vs display)
-│   ├── ProductsComparisonInsightsPanel.tsx # Painel de insights para comparação de produtos
-│   ├── ProductsScorecard.tsx       # Placar de produtos mais vendidos
+│   ├── ProductDetailsSection.tsx    # Seção inteligente para gráfico de linha e insights de produto único
+│   ├── ProductInsights.tsx    # Painel de insights para produto único (ao lado do ProductLineChart)
+│   ├── ProductsComparisonSection.tsx  # Orquestra o fluxo de comparação (setup vs display)
+│   ├── ProductsComparisonInsights.tsx # Painel de insights para comparação de produtos
+│   ├── ProductsScoreboard.tsx       # Placar de produtos mais vendidos
 │   ├── ProductSalesSection.tsx     # Seção inteligente para Pie Chart e Placar de vendas
 │   ├── Sidebar.tsx                 # Componente da barra lateral de navegação
 │   ├── SidebarItem.tsx             # Item reutilizável da barra lateral
