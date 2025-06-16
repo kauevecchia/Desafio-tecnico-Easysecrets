@@ -1,7 +1,5 @@
 import { useAppSelector, useAppDispatch } from "@/store/hooks";
-import {
-  selectAllProductsData,
-} from "@/store/slices/productSlice";
+import { selectAllProductsData } from "@/store/slices/productSlice";
 import { type ProductData } from "@/data/salesData";
 import {
   selectDashboardSelectedMonth,
@@ -18,11 +16,18 @@ import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { MONTHS } from "@/data/salesData";
 import { SalesPieChart, type PieChartData } from "@/lib/charts/SalesPieChart";
 import { ProductsScoreboard } from "./ProductsScoreboard";
+import { Button } from "./ui/button";
+import { Download } from "lucide-react";
+
+import { ExportConfirmationDialog } from "./ExportConfirmationDialog";
 
 const PIE_CHART_COLORS = [
   "#8884d8",
   "#82ca9d",
   "#ffc658",
+  "#ff7300",
+  "#00bcd4",
+  "#7cb342",
 ];
 const ANIMATION_DURATION = 800;
 
@@ -93,6 +98,9 @@ export function ProductSalesSection() {
     );
   };
 
+  const PIE_CHART_SVG_ID = "sales-pie-chart-svg";
+  const PIE_CHART_FILENAME = `vendas-por-produto-${selectedMonth.replace(" ", "-")}`;
+
   return (
     <section className="flex flex-col gap-8 md:flex-row">
       <Card className="flex min-h-[400px] w-full flex-col md:w-2/3">
@@ -111,7 +119,7 @@ export function ProductSalesSection() {
               <Select onValueChange={handleMonthChange} value={selectedMonth}>
                 <SelectTrigger
                   id="month-select"
-                  className="w-[165px] md:w-[200px]"
+                  className="w-[180px] md:w-[200px]"
                 >
                   <SelectValue placeholder="Selecione o Mês" />
                 </SelectTrigger>
@@ -124,6 +132,14 @@ export function ProductSalesSection() {
                   ))}
                 </SelectContent>
               </Select>
+              <ExportConfirmationDialog
+                svgElementId={PIE_CHART_SVG_ID}
+                filename={PIE_CHART_FILENAME}
+              >
+                <Button variant="outline" size="icon" className="ml-2">
+                  <Download className="h-4 w-4" />
+                </Button>
+              </ExportConfirmationDialog>
             </div>
           </div>
         </CardHeader>
@@ -135,6 +151,7 @@ export function ProductSalesSection() {
               animationDuration={ANIMATION_DURATION}
               renderLabel={renderCustomizedLabel}
               chartKey={selectedMonth}
+              svgId={PIE_CHART_SVG_ID}
             />
           ) : (
             <div className="text-muted-foreground flex h-full items-center justify-center text-center">

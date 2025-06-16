@@ -12,6 +12,7 @@ interface SalesPieChartProps {
   animationDuration?: number;
   renderLabel?: ((props: any) => React.ReactNode) | boolean;
   chartKey: string;
+  svgId: string;
 }
 
 export function SalesPieChart({
@@ -20,6 +21,7 @@ export function SalesPieChart({
   animationDuration = 800,
   renderLabel,
   chartKey,
+  svgId,
 }: SalesPieChartProps) {
   const filteredData = data.filter((item) => item.value > 0);
 
@@ -35,7 +37,7 @@ export function SalesPieChart({
 
   return (
     <ResponsiveContainer height={300} key={chartKey}>
-      <PieChart>
+      <PieChart id={svgId}>
         <Pie
           data={filteredData}
           dataKey="value"

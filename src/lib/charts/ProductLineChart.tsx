@@ -16,9 +16,10 @@ interface SalesDataPoint {
 interface ProductLineChartProps {
   data: SalesDataPoint[];
   lineColor: string;
+  svgId: string;
 }
 
-export function ProductLineChart({ data, lineColor }: ProductLineChartProps) {
+export function ProductLineChart({ data, lineColor, svgId }: ProductLineChartProps) {
   if (!data || data.length === 0) {
     return (
       <div className="text-muted-foreground flex h-full items-center justify-center text-center">
@@ -32,6 +33,7 @@ export function ProductLineChart({ data, lineColor }: ProductLineChartProps) {
   return (
     <ResponsiveContainer height={300}>
       <LineChart
+        id={svgId}
         data={data}
         margin={{
           top: 5,

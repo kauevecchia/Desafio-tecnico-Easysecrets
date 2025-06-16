@@ -4,7 +4,7 @@ import { selectDashboardSelectedProduct } from "@/store/slices/filterSlice";
 import { selectProductDataByName } from "@/store/slices/productSlice";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
-export function ProductInsightsPanel() {
+export function ProductInsights() {
   const selectedProduct = useAppSelector(selectDashboardSelectedProduct);
   const productData = useAppSelector(
     selectProductDataByName(selectedProduct || ""),
