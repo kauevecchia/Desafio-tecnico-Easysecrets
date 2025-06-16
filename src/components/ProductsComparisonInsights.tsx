@@ -99,17 +99,13 @@ export function ProductsComparisonInsights() {
           <span className="text-muted-foreground text-sm font-medium">
             Vendas Totais {product1Name}:
           </span>
-          <span className="text-primary font-bold">
-            {totalSales1} unidades
-          </span>
+          <span className="text-primary font-bold">{totalSales1} unidades</span>
         </div>
         <div className="bg-muted flex items-center justify-between rounded-md p-3">
           <span className="text-muted-foreground text-sm font-medium">
             Vendas Totais {product2Name}:
           </span>
-          <span className="text-primary font-bold">
-            {totalSales2} unidades
-          </span>
+          <span className="text-primary font-bold">{totalSales2} unidades</span>
         </div>
 
         <div className="bg-muted flex items-center justify-between rounded-md p-3">
@@ -141,15 +137,27 @@ export function ProductsComparisonInsights() {
           </span>
         </div>
 
-        {highestDifferenceMonth && (
-          <div className="bg-muted flex gap-2 items-center justify-between rounded-md p-3">
+        {highestDifferenceMonth !== null && (
+          <div className="bg-muted flex items-center justify-between gap-2 rounded-md p-3">
             <span className="text-muted-foreground text-sm font-medium">
               Maior Divergência:
             </span>
-            <span className="text-primary flex text-sm md:text-base items-center gap-1 font-bold">
-              {highestDifferenceMonth.month}:{" "}
-              {highestDifferenceMonth.diff > 0 ? product1Name : product2Name}{" "}
-              com {Math.abs(highestDifferenceMonth.diff)} unidades a mais
+            <span className="text-primary flex items-center gap-1 text-sm font-bold md:text-base">
+              {
+                (highestDifferenceMonth as { month: string; diff: number })
+                  .month
+              }
+              :{" "}
+              {(highestDifferenceMonth as { month: string; diff: number })
+                .diff > 0
+                ? product1Name
+                : product2Name}{" "}
+              com{" "}
+              {Math.abs(
+                (highestDifferenceMonth as { month: string; diff: number })
+                  .diff,
+              )}{" "}
+              unidades a mais
             </span>
           </div>
         )}
