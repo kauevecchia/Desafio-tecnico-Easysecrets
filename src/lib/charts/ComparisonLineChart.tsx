@@ -24,12 +24,14 @@ interface ComparisonLineChartProps {
   data: ComparisonChartDataPoint[];
   lines: ChartLineDefinition[];
   chartKey: string;
+  svgId: string;
 }
 
 export function ComparisonLineChart({
   data,
   lines,
   chartKey,
+  svgId,
 }: ComparisonLineChartProps) {
   const [shouldRenderChart, setShouldRenderChart] = useState(false);
 
@@ -56,6 +58,7 @@ export function ComparisonLineChart({
     shouldRenderChart ? (
       <ResponsiveContainer height={300}>
         <LineChart
+          id={svgId}
           data={data}
           margin={{
             top: 5,

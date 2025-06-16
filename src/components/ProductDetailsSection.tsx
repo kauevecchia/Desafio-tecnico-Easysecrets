@@ -16,12 +16,18 @@ import {
   selectDashboardSelectedProduct,
   setDashboardSelectedProduct,
 } from "@/store/slices/filterSlice";
-import { ProductInsightsPanel } from "./ProductInsights";
+import { ProductInsights } from "./ProductInsights";
+import { Button } from "./ui/button";
+import { Download } from "lucide-react";
+import { ExportConfirmationDialog } from "./ExportConfirmationDialog";
 
 const PRODUCT_COLORS = [
   "#8884d8",
   "#82ca9d",
   "#ffc658",
+  "#ff7300",
+  "#00bcd4",
+  "#7cb342",
 ];
 
 export function ProductDetailsSection() {
@@ -47,49 +53,63 @@ export function ProductDetailsSection() {
       ? PRODUCT_COLORS[selectedProductIndex % PRODUCT_COLORS.length]
       : "#8884d8";
 
+  const LINE_CHART_SVG_ID = "product-line-chart-svg";
+  const LINE_CHART_FILENAME = `vendas-${selectedProductForLineChart?.replace(' ', '-') || 'produto'}-detalhe`;
+
+
   return (
     <section className="flex flex-col gap-8 md:flex-row">
-      <Card className="flex min-h-[400px] w-full flex-col md:w-2/3">
+      <Card className="w-full md:w-2/3 flex flex-col min-h-[400px]">
         <CardHeader>
-          <CardTitle className="text-foreground text-xl font-semibold">
-            Vendas Detalhadas do Produto
-          </CardTitle>
-          <div className="mt-2 flex items-center gap-2">
-            <label
-              htmlFor="product-select"
-              className="text-muted-foreground text-sm"
-            >
-              Produto:
-            </label>
-            <Select
-              onValueChange={handleProductChangeForLineChart}
-              value={selectedProductForLineChart || ""}
-            >
-              <SelectTrigger
-                id="product-select"
-                className="w-[180px] md:w-[200px]"
+          <div className="flex justify-between items-center w-full">
+            <CardTitle className="text-foreground text-xl font-semibold">
+              Vendas Detalhadas do Produto
+            </CardTitle>
+            <div className="flex items-center gap-2 mt-2">
+              <label
+                htmlFor="product-select"
+                className="text-muted-foreground text-sm"
               >
-                <SelectValue placeholder="Selecione um Produto" />
-              </SelectTrigger>
-              <SelectContent>
-                {allProductNames.map((name) => (
-                  <SelectItem key={name} value={name}>
-                    {name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+                Produto:
+              </label>
+              <Select
+                onValueChange={handleProductChangeForLineChart}
+                value={selectedProductForLineChart || ""}
+              >
+                <SelectTrigger
+                  id="product-select"
+                  className="w-[180px] md:w-[200px]"
+                >
+                  <SelectValue placeholder="Selecione um Produto" />
+                </SelectTrigger>
+                <SelectContent>
+                  {allProductNames.map((name) => (
+                    <SelectItem key={name} value={name}>
+                      {name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              {selectedProductForLineChart && productSalesForLineChart.length > 0 && (
+                <ExportConfirmationDialog svgElementId={LINE_CHART_SVG_ID} filename={LINE_CHART_FILENAME}>
+                  <Button variant="outline" size="icon" className="ml-2">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </ExportConfirmationDialog>
+              )}
+            </div>
           </div>
         </CardHeader>
-        <CardContent className="flex-1 p-0 md:p-6">
+        <CardContent className="flex-1 p-6">
           <ProductLineChart
             data={productSalesForLineChart}
             lineColor={lineChartColor}
+            svgId={LINE_CHART_SVG_ID}
           />
         </CardContent>
       </Card>
-      <div className="flex w-full flex-col gap-4 md:w-1/3">
-        <ProductInsightsPanel />
+      <div className="w-full md:w-1/3">
+        <ProductInsights />
       </div>
     </section>
   );
